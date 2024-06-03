@@ -45,11 +45,12 @@ The Docker image includes several pre-installed k-mer model files, which are cri
   /extern/kmer_models/r9.4_200mv_70bps_5mer_RNA/template_median68pA.model
   ```
 
+- **R10 Models:**
+  ```
+  /extern/local_kmer_models/r10_180mv_450bps_9mer/template_r10_9mer.model
+  ```
+  
 ## Warnings and Precautions
 
 - **Mounting Volumes:** When running the Docker command, ensure that your current working directory (`$PWD`) is mounted correctly to `/workspace` in the container. This setup is crucial for the tool to access data files on your local system.
 - **Concurrency:** Usage of the `-t` option sets the number of threads. Make sure your system can handle the concurrency level you specify.
-
-## Further Assistance
-
-For additional support or if you have questions regarding the usage of this Docker image, please refer to the [main RawAlign repository](https://github.com/cmu-safari/RawAlign).
