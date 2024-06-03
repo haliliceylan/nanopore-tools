@@ -1,0 +1,3 @@
+[submodule "RawAlign/RawAlign"]
+	path = RawAlign/RawAlign
+	url = https://github.com/cmu-safari/RawAlign
