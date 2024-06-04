@@ -1,3 +1,6 @@
 [submodule "RawAlign/RawAlign"]
 	path = RawAlign/RawAlign
 	url = https://github.com/cmu-safari/RawAlign
+[submodule "Uncalled4/uncalled4"]
+	path = Uncalled4/uncalled4
+	url = https://github.com/skovaka/uncalled4
