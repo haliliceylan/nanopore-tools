@@ -1,6 +1,6 @@
 # Quick Start Guide for RawAlign Docker Image
 
-This Docker image provides a quick and easy way to utilize the `RawAlign` bioinformatics tool, designed to facilitate efficient DNA alignment. The image encapsulates the tool and its dependencies, simplifying setup and usage for end users. It's important to note that this image is maintained independently and is not an official release from the developers of `RawAlign`.
+This Docker image provides a quick and easy way to utilize the `RawAlign` bioinformatics tool, designed to facilitate efficient alignment of raw nanopore signals. The image encapsulates the tool and its dependencies, simplifying setup and usage for end users. It's important to note that this image is maintained independently and is not an official release from the developers of `RawAlign`.
 
 ## Upstream Repository
 
@@ -17,14 +17,14 @@ alias rawalign="docker run --rm -it -v $PWD:/workspace haliliceylanua/rawalign:l
 
 ### Basic Examples
 
-1. **Simple DNA Alignment:**
+1. **Indexing (make an index file from a reference genome in FASTA format)**
    ```bash
-   rawalign -d ref.ind -p /extern/local_kmer_models/r10_180mv_450bps_9mer/template_r10_9mer.model -t 32 chikV1.fasta
+   rawalign -d ref.ind -p /extern/local_kmer_models/r10_180mv_450bps_9mer/template_r10_9mer.model -t 32 reference.fasta
    ```
 
-2. **Dynamic Time Warping (DTW) Chain Evaluation:**
+2. **Mapping (Dynamic Time Warping (DTW) Chain Evaluation):**
    ```bash
-   rawalign --dtw-evaluate-chains -t 32 -x sensitive ref.ind CHIKV-1.pod5_1.0_0.fast5 > mapping.paf
+   rawalign --dtw-evaluate-chains -t 32 -x sensitive ref.ind <fast5_filename>.fast5 > mapping.paf
    ```
 
 ### Model Files
