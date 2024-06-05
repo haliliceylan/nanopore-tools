@@ -1,6 +1,6 @@
 # Quick Start Guide for the UNCALLED4 Docker Image
 
-This Docker image provides a quick and easy way to utilize the `UNCALLED4` bioinformatics tool, designed to facilitate the alignment of raw nanopore signals guided by basecalled mappings. The image encapsulates the tool and its dependencies, simplifying setup and usage for end users. It's important to note that this image is maintained independently and is not an official release from the developers of `RawAlign`.
+This Docker image provides a quick and easy way to utilize the `UNCALLED4` bioinformatics tool, designed to facilitate basecaller-guided nanopore signal alignment. The image encapsulates the tool and its dependencies, simplifying setup and usage for end users. It's important to note that this image is maintained independently and is not an official release from the developers of `UNCALLED4`.
 
 ## Upstream Repository
 
