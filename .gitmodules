@@ -4,3 +4,6 @@
 [submodule "Uncalled4/uncalled4"]
 	path = Uncalled4/uncalled4
 	url = https://github.com/skovaka/uncalled4
+[submodule "Sigmoni/sigmoni"]
+	path = Sigmoni/sigmoni
+	url = https://github.com/vshiv18/sigmoni.git
