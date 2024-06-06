@@ -6,7 +6,7 @@
 	url = https://github.com/skovaka/uncalled4
 [submodule "Sigmoni/sigmoni"]
 	path = Sigmoni/sigmoni
-	url = https://github.com/vshiv18/sigmoni.git
+	url = https://github.com/vshiv18/sigmoni
 [submodule "Uncalled/UNCALLED"]
 	path = Uncalled/UNCALLED
 	url = https://github.com/skovaka/UNCALLED
