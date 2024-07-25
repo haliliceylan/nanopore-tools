@@ -20,3 +20,6 @@ https://github.com/skovaka/UNCALLED
 
 ### BaseLess
 [BaseLess](https://github.com/cvdelannoy/baseLess)
+
+### SquiggleNet
+[SquiggleNet](https://github.com/welch-lab/SquiggleNet)
