@@ -34,8 +34,14 @@ RUN useradd -m user
 COPY --chown=user:user --from=build /root/.local /home/user/.local
 ENV PATH=/home/user/.local/bin:$PATH
 
-# copy spumoni
-COPY --chown=user:user --from=spumoni /spumoni/build/spumoni /usr/local/bin/spumoni
+# Copy the entire `/spumoni/build` folder into the Docker container
+COPY --chown=user:user --from=spumoni /spumoni/build /spumoni/build
+
+# Add `/spumoni/build` to the PATH
+ENV PATH="/spumoni/build:$PATH"
+
+# Set SPUMONI_BUILD_DIR environment variable
+ENV SPUMONI_BUILD_DIR="/spumoni/build"
 
 # copy sigmoni
 COPY --chown=user:user --from=build /app /sigmoni
@@ -46,3 +52,9 @@ RUN chmod +x /sigmoni/index.py && chmod +x /sigmoni/main.py
 USER user
 
 WORKDIR /workspace
+
+
+
+
+
+
