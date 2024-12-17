@@ -22,7 +22,7 @@ RUN cd src/delta_rust && \
 
 RUN pip install --user numpy pandas scikit-learn Biopython tqdm
 
-RUN pip install --user git+https://github.com/skovaka/UNCALLED.git@uncalled4
+RUN pip install --user git+https://github.com/skovaka/uncalled4
 
 RUN pip install --user tblib
 
