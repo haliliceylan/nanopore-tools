@@ -37,3 +37,6 @@ USER user
 WORKDIR /workspace
 
 ENTRYPOINT ["/usr/local/bin/rawalign"]
+
+# For nextflow compabilitiy https://github.com/nextflow-io/nextflow/issues/33
+ENTRYPOINT [] 
