@@ -9,7 +9,7 @@ For comprehensive documentation, feature requests, or to report issues, please r
 
 ## Usage Instructions
 
-To use `SquiggleNet` via Docker, you can set an alias as follows. 
+To use `SquiggleNet` via Docker, you can set an alias as follows. This command needs to be executed from the root directory containing your nanopore data, because this is the directory that will be mounted to the containers `/workspace`.
 
 ```bash
 alias squigglenet="docker run --rm -it -v $PWD:/workspace squigglenet"
@@ -28,7 +28,6 @@ alias squigglenet="docker run --rm -it -v $PWD:/workspace squigglenet"
 	```bash
 	squigglenet inference.py -m /app/SquiggleNet/models/model_B4_2_3000_totmad_br_2.ckpt -i /workspace/nanopore_fast5s -o /workspace/squigglenet_results`
 	```
-	The command needs to be executed from the root directory containing your nanopore data, because this is the directory that will be mounted to the containers `/workspace`.
 	
 2. **Training a custom model:**
 
