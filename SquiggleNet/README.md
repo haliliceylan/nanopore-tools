@@ -12,7 +12,7 @@ For comprehensive documentation, feature requests, or to report issues, please r
 To use `SquiggleNet` via Docker, you can set an alias as follows. This command needs to be executed from the root directory containing your nanopore data, because this is the directory that will be mounted to the containers `/workspace`.
 
 ```bash
-alias squigglenet="docker run --rm -it -v $PWD:/workspace squigglenet"
+alias squigglenet="docker run --rm -it -v $PWD:/workspace lraes/squigglenet:latest"
 ```
 
 ### Basic Examples
