@@ -25,7 +25,7 @@ deepselectnet <name_of_script> <commandline arguments>"
 
 ### GPU acceleration
 
-This Docker container is able to use GPU acceleration by NVIDIA GPUs. To enable this, you need to install the [NVIDIA Container Toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html). You can test whether 
+This Docker container is able to use GPU acceleration by NVIDIA GPUs. To enable this, you need to install the [NVIDIA Container Toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html).
 
 If you want to run `DeepSelectNet` on CPU, this is possible by removing the `--gpus all` flag from the alias command.
 
