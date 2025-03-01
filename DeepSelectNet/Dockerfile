@@ -1,14 +1,36 @@
-# DeepSelectNet requires Python 3.5 >= version <= 3.8
-FROM --platform=linux/amd64 python:3.8 AS build
+# Tensorflow 2.2 requires CUDA 10.1 and cuDNN 7.4
+FROM nvcr.io/nvidia/cuda:10.1-cudnn7-devel-ubuntu18.04 AS build
 
 WORKDIR /app
 
 RUN apt-get update
-RUN apt-get install -y --no-install-recommends build-essential gcc
+RUN apt-get install -y --no-install-recommends build-essential gcc wget zlib1g-dev
 
+# DeepSelectNet requires Python 3.5 >= version <= 3.8
+# Download and install Python 3.8
+ARG DEBIAN_FRONTEND=noninteractive
+RUN apt-get install -y libffi-dev libreadline-gplv2-dev libncursesw5-dev libssl-dev libsqlite3-dev tk-dev libgdbm-dev libc6-dev libbz2-dev
+RUN cd /usr/src && \
+    wget https://www.python.org/ftp/python/3.8.0/Python-3.8.0.tgz && \
+    tar xzf Python-3.8.0.tgz && \
+    cd Python-3.8.0 && \
+    ./configure --enable-optimizations && \
+    make altinstall && \
+    ln -s /usr/local/bin/python3.8 /usr/bin/python3 && \
+    ln -s /usr/local/bin/pip3.8 /usr/bin/pip3 && \
+    cd /usr/src && \
+    rm -rf Python-3.8.0.tgz Python-3.8.0
+
+# Clone git repo
+RUN apt-get install -y git
 RUN git clone https://github.com/AnjanaSenanayake/DeepSelectNet
 
-RUN pip3 install -r ./DeepSelectNet/requirements.txt
+# Install python libraries
+RUN pip3 install --upgrade pip
+RUN pip3 install --trusted-host pypi.python.org -r ./DeepSelectNet/requirements.txt
+
+# Install tensorflow-gpu to enable GPU
+RUN pip install tensorflow-gpu==2.2.0
 
 # Workaround "generated code is out of date and must be regenerated with protoc >= 3.19.0" error in trainer.py
 RUN pip install protobuf==3.20.*

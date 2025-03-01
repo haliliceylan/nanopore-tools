@@ -1,24 +1,35 @@
-# Quick Start Guide for DeepSelectNet Docker Image
+# Quick Start Guide for the DeepSelectNet Docker image
 
-This Docker image provides a quick and easy way to utilize the `DeepSelectNet` bioinformatics tool. `DeepSelectNet` is a proof-of-concept tool designed to classify raw nanopore signals as target or non-target for selective sequencing. The image encapsulates the tool and its dependencies, simplifying setup and usage for end users. This image is maintained independently and is not an official release from the developers of `DeepSelectNet`.
+This Docker image provides an efficient way to utilize the `DeepSelectNet` bioinformatics tool. `DeepSelectNet` is a proof-of-concept tool designed to classify raw nanopore signals as target or non-target for selective sequencing.
 
-## Upstream Repository
+The image contains the tool and its dependencies, simplifying setup and usage for end users. This image is maintained independently and is not an official release from the developers of `DeepSelectNet`.
+
+## Upstream repository
 
 For comprehensive documentation, feature requests, or to report issues, please refer to the main `DeepSelectNet` repository at:
 [DeepSelectNet on GitHub](https://github.com/AnjanaSenanayake/DeepSelectNet/)
 
-## Usage Instructions
+## Usage instructions
+
+### Setting an alias and running commands
 
 To use `DeepSelectNet` via Docker, you can set an alias as follows. This command needs to be executed from the root directory containing your nanopore data, because this is the directory that will be mounted to the containers' `/workspace/`.
 ```bash
-alias deepselectnet="docker run --rm -it -v $PWD:/workspace lraes/deepselectnet:latest"
+alias deepselectnet="docker run --rm -it --gpus all -v $PWD:/workspace lraes/deepselectnet:latest"
 ```
+
 In the Docker image, the `scripts` and `support` directories were added to the path environment variable, and a Python shebang line was added to the beginning of each Python script in those directories. This allows you to execute the scripts in those directories as follows:
 ```bash
 deepselectnet <name_of_script> <commandline arguments>"
 ```
 
-### Basic Examples
+### GPU acceleration
+
+This Docker container is able to use GPU acceleration by NVIDIA GPUs. To enable this, you need to install the [NVIDIA Container Toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html). You can test whether 
+
+If you want to run `DeepSelectNet` on CPU, this is possible by removing the `--gpus all` flag from the alias command.
+
+### Examples
 
 1. **Training a model:**
 
@@ -41,8 +52,3 @@ deepselectnet <name_of_script> <commandline arguments>"
 	deepselectnet inference.py -model /workspace/output/model -s5 /workspace/data/test-zymo.blow5 -lb 1 -mad 3 -o /workspace/output/classification_zymo
 	```
 	Remark: only one `blow5` file can be processed per command.
-
-## Warnings and Precautions
-
-- **Mounting Volumes:** When running the Docker command, ensure that your current working directory (`$PWD`) is mounted correctly to `/workspace` in the container. This setup is crucial for the tool to access data files on your local system.
-- **GPU:** DeepSelectNet is able to run on GPU, but this is currently not supported by this Docker image.
