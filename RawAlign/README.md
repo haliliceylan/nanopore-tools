@@ -12,7 +12,7 @@ For comprehensive documentation, feature requests, or to report issues, please r
 To use `RawAlign` via Docker, you can set an alias as follows. This alias will help in running the `RawAlign` commands inside a Docker container, making the process seamless:
 
 ```bash
-alias rawalign="docker run --rm -it -v $PWD:/workspace haliliceylanua/rawalign:latest"
+alias rawalign="docker run --rm -it -v $PWD:/workspace haliliceylanua/rawalign:latest rawalign"
 ```
 
 ### Basic Examples
